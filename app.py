@@ -40,12 +40,25 @@ def buy_goods():
     print("Đặt ngón tay đã đăng ký để quét dấu vân tay:")
 
 
+def update_fingerprint():
+    print("Nhập số điện thoại đăng ký:")
+    phone = input()
+    client = DB()
+    client_id = client.get_client_by_phone(phone)
+    fg = Fingerprint()
+    ok = fg.add_with_id(client_id)
+    if ok:
+        print("Chúc mừng quý khách đã cập nhật vân tay thành công !!!")
+        client.print()
+
+
 if __name__ == '__main__':
     message = """
     1. Đăng Ký
     2. Checkin/Checkout
     3. Gia hạn gói mới
     4. Mua hàng
+    5. Cập nhật vân tay
     Vui lòng chọn theo số như trên : 
     """
     print(message)
@@ -54,5 +67,6 @@ if __name__ == '__main__':
         1: register,
         2: checkin_out,
         3: extend_new_package,
-        4: buy_goods
+        4: buy_goods,
+        5: update_fingerprint
     }[operation]()

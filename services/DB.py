@@ -203,7 +203,6 @@ class DB:
                    package.get('service_code'), package.get('price'), package.get('start_date'),
                    package.get('expiry_date'), status)
 
-
     def check_in_out(self, client_id):
         check_in_status = self._get_check_in_status(client_id)
         package = self._get_current_package(client_id)
@@ -217,3 +216,9 @@ class DB:
             else:
                 self._record_checkin(package.get('client_services_id'))
         return self._gather_checkin_info(package, status)
+
+
+    def get_client_by_phone(self, phone):
+        query = "SELECT id FROM clients WHERE phone = '{}';".format(phone)
+        result = self._select(query)
+        return int(result[0])
