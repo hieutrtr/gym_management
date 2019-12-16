@@ -6,9 +6,9 @@ CREATE TABLE clients (
     email VARCHAR(128) NOT NULL,
     gender ENUM('M', 'F'),
     phone VARCHAR(128) NOT NULL,
-    ordinal_num VARCHAR(128) NOT NULL,
+    ordinal_phone VARCHAR(128) NOT NULL,
     PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE client_services (
     id INT AUTO_INCREMENT,
@@ -28,7 +28,7 @@ CREATE TABLE client_services (
 
 CREATE TABLE services (
     id INT AUTO_INCREMENT,
-    service_code ENUM('mem_30_full', 'mem_30_morning', 'mem_15_entries', 'mem_90_full', 'mem_180_full', 'mem_annual', 
+    service_code ENUM('mem_30_full', 'mem_30_morning', 'mem_15_entries', 'mem_90_full', 'mem_180_full', 'mem_annual',
     'sup_whey_rule_1', 'sup_bcaa',
     'drink_lavie', 'drink_revive',
     'accessory_gloves_cloth', 'accessory_gloves_rubber', 'accessory_gloves_y', 'accessory_bracer', 'accessory_gloves_dot_cs', 'accessory_gloves_aolike',
@@ -41,17 +41,17 @@ CREATE TABLE services (
 );
 
 -- Insert services
-INSERT INTO services(service_code, price, description) 
+INSERT INTO services(service_code, price, description)
 VALUES ('mem_30_full', 450000, 'Membership 30 full days');
-INSERT INTO services(service_code, price, description) 
+INSERT INTO services(service_code, price, description)
 VALUES ('mem_30_morning', 360000, 'Membership 30 morning days');
-INSERT INTO services(service_code, price, description) 
+INSERT INTO services(service_code, price, description)
 VALUES ('mem_15_entries', 340000, 'Membership 15 entries in 30 days');
-INSERT INTO services(service_code, price, description) 
+INSERT INTO services(service_code, price, description)
 VALUES ('mem_90_full', 1200000, 'Membership 90 full days');
-INSERT INTO services(service_code, price, description) 
+INSERT INTO services(service_code, price, description)
 VALUES ('mem_180_full', 1800000, 'Membership 180 full days');
-INSERT INTO services(service_code, price, description) 
+INSERT INTO services(service_code, price, description)
 VALUES ('mem_annual', 3000000, 'Membership 365 full days');
 
 ALTER TABLE services ADD COLUMN period INT NOT NULL DEFAULT 30;

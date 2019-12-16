@@ -1,0 +1,7 @@
+mysql-connector==2.2.9
+mysql-connector-python==8.0.18
+protobuf==3.11.1
+pyserial==3.4
+python-dotenv==0.10.3
+R305==2.0.0
+six==1.13.0

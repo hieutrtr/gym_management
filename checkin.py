@@ -8,7 +8,7 @@ baudrate = sys.argv[2] # the default baudrate for this module is 57600
 dev = R305(device, baudrate)
 
 def callback(data):
-    x = raw_input(data)
+    x = input(data)
 
 def scan_fingerprint():
     time.sleep(0.5)
@@ -19,7 +19,7 @@ def scan_fingerprint():
         matchstore = result.get('matchstore')
         return int(pageid*100 + matchstore)
     return None
-    
+
 def check_in(client_id):
     client = Client()
     info = client.checkin_membership(client_id)
@@ -39,7 +39,7 @@ def notice(check_in_info):
         check_in_info.get('expiry_date'), check_in_info.get('version')))
 
 while(True):
-    operate = raw_input()
+    operate = input()
     if operate == 'yes':
         client_id = scan_fingerprint()
         if (client_id is None or type(client_id) is str):
