@@ -1,5 +1,5 @@
 mysql-connector==2.2.9
-mysql-connector-python==8.0.18
+mysql-connector-python==9.1.0
 protobuf==3.11.1
 pyserial==3.4
 python-dotenv==0.10.3
